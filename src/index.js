@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import { store } from './app/store';
 import {  createBrowserRouter,  RouterProvider,} from "react-router-dom";
-import Events from './features/Events';
+import Students from './features/Students';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -14,7 +14,7 @@ const router = createBrowserRouter([
     children:[
       {
         path:'/',
-        element:<Events></Events>,
+        element:<Students></Students>,
       }]
   },
 ]);
