@@ -16,10 +16,17 @@ export const StudentsApi = createApi({
         body: std,
       }),
     }),
-    getstudentDetails:builder.query({
+    getstudentDetails :builder.query({
       query : (id)=> `/${id}`, 
       method:"GET"   ,
       }),
+    deleteStudent : builder.mutation({
+      query : (id) => ({
+        url: `/deleteStd/${id}`,
+        method:'DELETE',
+        body: id,
+      }),
+    })
   }),
 })
 
@@ -27,4 +34,5 @@ export const StudentsApi = createApi({
 // auto-generated based on the defined endpoints
 export const { useGetStudentsQuery,
                useAddStudentMutation,
-               useGetstudentDetailsQuery, } = StudentsApi
+               useGetstudentDetailsQuery,
+               useDeleteStudentMutation,  } = StudentsApi;

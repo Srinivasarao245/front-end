@@ -1,10 +1,14 @@
 import React from 'react'
-import { useGetStudentsQuery } from '../services/StudentsApi';
-import { Link } from 'react-router-dom';
+import { useDeleteStudentMutation, useGetStudentsQuery } from '../services/StudentsApi';
+import { Link, useParams } from 'react-router-dom';
 
 function Students() {
+  var { id } = useParams();
     var {isLoading,data}= useGetStudentsQuery();
-    
+    var [ deleteFn ] = useDeleteStudentMutation(id)
+      function del(id){
+        deleteFn(id)
+      }
     console.log(data);
   return (
     <div>
@@ -12,8 +16,11 @@ function Students() {
       <Link to='/addStud' className='btn btn-success'>Add Student</Link>
       { isLoading && <h1>Loading.....</h1> }
       { !isLoading && (
-        <ul>{data?.map((std)=>{ return<li>
-          <Link to={`/studetails/${std._id}`} className='text-decoration-none'>{std.name} <button className='btn btn-danger'>Delete</button></Link></li>
+        <ul>{data?.map((std,id)=>{ return<li>
+          <Link to={`/studetails/${std._id}`} className='text-decoration-none'>{std.name}
+          </Link>
+          <button className='btn btn-danger' onClick={()=>{del(std._id)}}>Delete</button>
+          </li>
           })}</ul>
       ) }
     </div>
