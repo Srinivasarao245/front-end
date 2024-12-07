@@ -7,6 +7,9 @@ import { Provider } from 'react-redux';
 import { store } from './app/store';
 import {  createBrowserRouter,  RouterProvider,} from "react-router-dom";
 import Students from './features/Students';
+import AddStudents from './features/AddStudents';
+import StudentDetails from './features/StudentDetails';
+// import AddStudents from './features/AddStudents';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -14,8 +17,17 @@ const router = createBrowserRouter([
     children:[
       {
         path:'/',
-        element:<Students></Students>,
-      }]
+        element:<Students/>,
+      },
+      {
+        path:'/addstud',
+        element:<AddStudents/>
+      },
+      {
+        path:`/studetails/:id`,
+        element:<StudentDetails/>
+      },
+    ]
   },
 ]);
 const root = ReactDOM.createRoot(document.getElementById('root'));

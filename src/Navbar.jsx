@@ -17,7 +17,7 @@ function Navbar() {
                     <a className="nav-link" href="/">Students</a>
                     </li>
                     <li className="nav-item">
-                    <a className="nav-link" href="/">Events</a>
+                    <a className="nav-link" href="/addStd">Add Student</a>
                     </li>
                     <li className="nav-item">
                     <a className="nav-link" href="/">ComedyShows</a>

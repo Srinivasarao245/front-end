@@ -9,9 +9,22 @@ export const StudentsApi = createApi({
     getStudents: builder.query({
       query: () => `/`,
     }),
+    addStudent:builder.mutation({
+      query: (std) => ({
+        url: `/add`,
+        method:'POST',
+        body: std,
+      }),
+    }),
+    getstudentDetails:builder.query({
+      query : (id)=> `/${id}`, 
+      method:"GET"   ,
+      }),
   }),
 })
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useGetStudentsQuery } = StudentsApi
+export const { useGetStudentsQuery,
+               useAddStudentMutation,
+               useGetstudentDetailsQuery, } = StudentsApi
