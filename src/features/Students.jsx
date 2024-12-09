@@ -5,7 +5,7 @@ import { Link, useParams } from 'react-router-dom';
 function Students() {
   var { id } = useParams();
     var {isLoading,data}= useGetStudentsQuery();
-    var [ deleteFn ] = useDeleteStudentMutation(id)
+    var [ deleteFn ] = useDeleteStudentMutation()
       function del(id){
         deleteFn(id)
       }

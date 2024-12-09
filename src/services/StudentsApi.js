@@ -9,6 +9,7 @@ export const StudentsApi = createApi({
     getStudents: builder.query({
       query: () => `/`,
     }),
+
     addStudent:builder.mutation({
       query: (std) => ({
         url: `/add`,
@@ -16,17 +17,20 @@ export const StudentsApi = createApi({
         body: std,
       }),
     }),
+
     getstudentDetails :builder.query({
       query : (id)=> `/${id}`, 
       method:"GET"   ,
       }),
+
     deleteStudent : builder.mutation({
       query : (id) => ({
         url: `/deleteStd/${id}`,
         method:'DELETE',
         body: id,
       }),
-    })
+    }),
+    
   }),
 })
 
